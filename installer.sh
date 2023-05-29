@@ -8,7 +8,7 @@ user_dir=$(echo ~)
 cur_dir=$(pwd)
 
 # write working directory into "/home/user/.trans_working_dir" file
-echo "$cur_dir" >> $user_dir/.trans_working_dir
+echo "$cur_dir" > $user_dir/.trans_working_dir
 
 # make files "trans_func.sh" and "venv_maker.sh" executable
 chmod +x ./trans_func.sh

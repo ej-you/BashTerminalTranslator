@@ -1,8 +1,6 @@
-#!/home/danil/anaconda3/envs/stable/bin/python
-
+from googletrans import Translator
 from re import match
 from sys import argv
-from googletrans import Translator
 
 
 TRANSLATOR = Translator()

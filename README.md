@@ -11,3 +11,12 @@ git clone https://github.com/Danil-114195722/BashTerminalTranslator.git
 ```shell
 bash ./installer.sh
 ```
+#### 3) Выйти из-под пользователя и войти под ним обратно систему
+#### 4) Переводчик может переводить как отдельные слова, так и предложения.
+#### Например:
+```shell
+# input
+trans dog
+# output
+собака
+```

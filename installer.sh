@@ -9,6 +9,8 @@ function install() {
     # working directory
     cur_dir=$(pwd)
 
+    echo "$user_dir $cur_dir"
+
     # write working directory into "/home/user/.trans_working_dir" file
     echo "$cur_dir" > $user_dir/.trans_working_dir
 

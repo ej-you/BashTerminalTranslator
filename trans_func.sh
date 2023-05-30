@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # get workdir
-trans_dir=$(cat ./.trans_working_dir)
+trans_dir=$(cat ~/.trans_working_dir)
 
 function trans {
   # get text (as args)

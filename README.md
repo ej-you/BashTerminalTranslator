@@ -10,7 +10,11 @@
 ```shell
 git clone https://github.com/Danil-114195722/BashTerminalTranslator.git
 ```
-#### 2) Запустить установщик
+#### 2) Перейти в директорию с проектом
+```shell
+cd ./BashTerminalTranslator
+```
+#### 3) Запустить установщик
 ```shell
 bash ./installer.sh
 ```

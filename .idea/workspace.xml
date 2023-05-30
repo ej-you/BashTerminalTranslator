@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30b534c2-d3b4-4232-99c1-472c42771892" name="Changes" comment="Fix some bugs; exist adding file &quot;./.trans_working_dir&quot; into user's home directory">
+    <list default="true" id="30b534c2-d3b4-4232-99c1-472c42771892" name="Changes" comment="Fix bug with writing trans_working_dir">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/google_trans_getter.py" beforeDir="false" afterPath="$PROJECT_DIR$/google_trans_getter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/installer.sh" beforeDir="false" afterPath="$PROJECT_DIR$/installer.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trans_func.sh" beforeDir="false" afterPath="$PROJECT_DIR$/trans_func.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,13 +64,45 @@
       <option name="project" value="LOCAL" />
       <updated>1685384997804</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add python venv">
+      <created>1685386652449</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1685386652449</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Add venv to .gitignore">
+      <created>1685386714709</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1685386714709</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Correct some lines in README">
+      <created>1685387837153</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1685387837153</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Fix bug with writing trans_working_dir">
+      <created>1685390113421</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1685390113421</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add needed files" />
     <MESSAGE value="Add installer" />
     <MESSAGE value="Fix some bugs; exist adding file &quot;./.trans_working_dir&quot; into user's home directory" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix some bugs; exist adding file &quot;./.trans_working_dir&quot; into user's home directory" />
+    <MESSAGE value="Add python venv" />
+    <MESSAGE value="Add venv to .gitignore" />
+    <MESSAGE value="Correct some lines in README" />
+    <MESSAGE value="Fix bug with writing trans_working_dir" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix bug with writing trans_working_dir" />
   </component>
 </project>

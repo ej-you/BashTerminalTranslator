@@ -3,22 +3,28 @@ from re import match
 from sys import argv
 
 
-TRANSLATOR = Translator()
-
-
 def get_translate(word: str) -> str:
+    trnsl = Translator()
+
     word = word.strip().lower()
 
     if match('([а-яА-Я]+\s*)', word):
-        translation = TRANSLATOR.translate(word, src='ru', dest='en').text
+        translation = trnsl.translate(word, src='ru', dest='en').text
     else:
-        translation = TRANSLATOR.translate(word, src='en', dest='ru').text
+        translation = trnsl.translate(word, src='en', dest='ru').text
 
     return translation
 
 
-if __name__ == "__main__":
+def main() -> None:
     users_str = " ".join(argv[1:])
 
-    tr_word = get_translate(word=users_str)
-    print(tr_word)
+    if users_str:
+        tr_word = get_translate(word=users_str)
+        print(tr_word)
+    else:
+        print('Please enter some text')
+
+
+if __name__ == "__main__":
+    main()

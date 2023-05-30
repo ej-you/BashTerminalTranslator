@@ -31,9 +31,9 @@ function install() {
 }
 
 
-read -p "Have you read the instruction (README.md)? [type yes if true]" confirm
+read -p "Have you read the instruction (README.md)? [type yes if true] " confirm
 if [ "$confirm" = "yes" ]; then
     install
 else
-    echo "Please, read the  instruction (README.md) and try to install translator again!"
+    echo "Please, read the  instruction (cat README.md) and try to install translator again!"
 fi

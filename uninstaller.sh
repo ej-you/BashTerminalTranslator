@@ -3,7 +3,7 @@
 read -p 'Are you sure you want to UNINSTALL "Bash Translator"? [y, n] ' sure
 if [ "$sure" = 'y' ]; then
     # clear strings with importing func in ~/.bashrc
-    str_start_del=$(sed -n '/^# >>> Bash translate from Ej_you >>>/=' ~/.bashrc)
+    str_start_del="$(grep --line-number --max-count=1 --only-matching ^'# >>> Bash translate from Ej_you >>>' ~/.bashrc | sed -e s/\:.*//)"
     str_end_del=$(($str_start_del+2))
 
     sed -i "$str_start_del,${str_end_del}d" ~/.bashrc

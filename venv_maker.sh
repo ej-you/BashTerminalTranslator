@@ -9,6 +9,9 @@ function continue_if_status_ok() {
     pip3 install -r ./requirements.txt
     deactivate
 
+    # user's home directory
+    user_dir=$(echo ~)
+
     echo "Finish installing..."
 
     # add source file "./trans_func.sh" into /home/user/.bashrc

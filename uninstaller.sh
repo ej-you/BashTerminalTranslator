@@ -21,7 +21,7 @@ if [ "$sure" = 'y' ]; then
     status=$?
     # something wrong
     if [ "$status" != '0' ]; then
-        echo 'Something went wrong!!! Please, check your files "~/.bashrc" and "~/.trans_working_dir"'
+        echo 'Something went wrong!!! Please, check your file "~/.trans_working_dir"'
     # alright
     else
         echo '"Bash Translator" was removed successfully!'

@@ -25,9 +25,9 @@ function install() {
 
     # add source file "./trans_func.sh" into /home/user/.bashrc
     echo "
-# <<< Bash translate from Ej_you >>>" >> $user_dir/.bashrc
+# >>> Bash translate from Ej_you >>>" >> $user_dir/.bashrc
     echo "source $(pwd)/trans_func.sh" >> $user_dir/.bashrc
-    echo "# <<< Bash translate >>>" >> $user_dir/.bashrc
+    echo "# <<< Bash translate <<<" >> $user_dir/.bashrc
 
     echo "Done!"
 }

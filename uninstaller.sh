@@ -28,5 +28,5 @@ if [ "$sure" = 'y' ]; then
     fi
 
 else
-    echo 'Removing rejected!'
+    echo 'REMOVING REJECTED!'
 fi

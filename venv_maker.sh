@@ -40,6 +40,6 @@ else
         python3 -m venv venv &> /dev/null
         continue_if_status_ok
     else
-        echo "Installation rejected!"
+        echo "INSTALLATION REJECTED!"
     fi
 fi

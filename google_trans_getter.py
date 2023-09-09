@@ -27,4 +27,5 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    # main()
+    print(get_translate(input('word: ')))

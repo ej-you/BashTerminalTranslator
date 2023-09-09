@@ -21,15 +21,6 @@ function install() {
     # installing python requirements
     echo "Python requirements installing..."
     ./venv_maker.sh
-    echo "Finish installing..."
-
-    # add source file "./trans_func.sh" into /home/user/.bashrc
-    echo "
-# >>> Bash translate from Ej_you >>>" >> $user_dir/.bashrc
-    echo "source $(pwd)/trans_func.sh" >> $user_dir/.bashrc
-    echo "# <<< Bash translate <<<" >> $user_dir/.bashrc
-
-    echo "Done!"
 }
 
 

@@ -1,6 +1,13 @@
 #!/bin/bash
 
 
+# output colors
+red_color="\033[31m"
+yellow_color="\033[33m"
+green_color="\033[32m"
+default_color="\033[0m"
+
+
 # continue installation if python and python3.10-venv is installed
 function continue_if_status_ok() {
     source venv/bin/activate
@@ -12,15 +19,14 @@ function continue_if_status_ok() {
     # user's home directory
     user_dir=$(echo ~)
 
-    echo "Finish installing..."
+    echo -e "${yellow_color}Finish installing...${default_color}"
 
     # add source file "./trans_func.sh" into /home/user/.bashrc
-    echo "
-# >>> Bash translate from Ej_you >>>" >> $user_dir/.bashrc
-    echo "source $(pwd)/trans_func.sh" >> $user_dir/.bashrc
-    echo "# <<< Bash translate <<<" >> $user_dir/.bashrc
+    echo -e "\n# >>> Bash translate from Ej_you >>>" >> "$user_dir"/.bashrc
+    echo "source $(pwd)/trans_func.sh" >> "$user_dir"/.bashrc
+    echo "# <<< Bash translate <<<" >> "$user_dir"/.bashrc
 
-    echo "Done!"
+    echo -e "${green_color}Done!${default_color}"
 }
 
 
@@ -49,10 +55,10 @@ else
             sudo apt update
             sudo apt install -y python3 python3.10-venv
         fi
-        echo "Continue translator installation!"
+        echo -e "${yellow_color}Continue translator installation!${default_color}"
         python3 -m venv venv &> /dev/null
         continue_if_status_ok
     else
-        echo "INSTALLATION REJECTED!"
+        echo -e "${red_color}Installation rejected!${default_color}"
     fi
 fi

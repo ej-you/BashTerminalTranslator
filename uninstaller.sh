@@ -1,5 +1,13 @@
 #!/bin/bash
 
+
+# output colors
+red_color="\033[31m"
+yellow_color="\033[33m"
+green_color="\033[32m"
+default_color="\033[0m"
+
+
 read -p 'Are you sure you want to UNINSTALL "Bash Translator"? [y, n] ' sure
 if [ "$sure" = 'y' ]; then
     # clear strings with importing func in ~/.bashrc
@@ -11,7 +19,8 @@ if [ "$sure" = 'y' ]; then
     status=$?
     # something wrong
     if [ "$status" != '0' ]; then
-        echo 'Something went wrong!!! Please, check your file "~/.bashrc"'
+        echo -e "${red_color}Something went wrong!!! Please, check your file \"~/.bashrc\"${default_color}"
+        exit 1
     # alright
     else
         # remove file ~/.trans_working_dir
@@ -21,12 +30,13 @@ if [ "$sure" = 'y' ]; then
     status=$?
     # something wrong
     if [ "$status" != '0' ]; then
-        echo 'Something went wrong!!! Please, check your file "~/.trans_working_dir"'
+        echo -e "${red_color}Something went wrong!!! Please, check your file \"~/.trans_working_dir\"${default_color}"
+        exit 1
     # alright
     else
-        echo '"Bash Translator" was removed successfully!'
+        echo -e "${green_color}\"Bash Translator\" was removed successfully!${default_color}"
     fi
 
 else
-    echo 'REMOVING REJECTED!'
+    echo -e "${yellow_color}Removing was rejected${default_color}"
 fi

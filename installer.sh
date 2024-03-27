@@ -1,8 +1,14 @@
 #!/bin/bash
 
+
+# output colors
+yellow_color="\033[33m"
+default_color="\033[0m"
+
+
 # installer func
 function install() {
-    echo "Start installing..."
+    echo -e "${yellow_color}Start installing...${default_color}"
 
     # user's home directory
     user_dir=$(echo ~)
@@ -19,7 +25,7 @@ function install() {
     chmod +x ./venv_maker.sh
 
     # installing python requirements
-    echo "Python requirements installing..."
+    echo -e "${yellow_color}Python requirements installing...${default_color}"
     ./venv_maker.sh
 }
 
@@ -28,5 +34,5 @@ read -p "Have you read the instruction (README.md)? [type yes if true] " confirm
 if [ "$confirm" = "yes" ]; then
     install
 else
-    echo "Please, read the instruction (cat README.md) and try to install translator again!"
+    echo -e "${yellow_color}Please, read the instruction (cat README.md) and try to install translator again!${default_color}"
 fi

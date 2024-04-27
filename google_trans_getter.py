@@ -3,12 +3,15 @@ from re import match
 from sys import argv
 
 import httpcore
+import readline
 
 from dotenv import load_dotenv
 from googletrans import Translator
 from googletrans.client import Timeout
 
 
+# Отключение обработки управляющих символов (для корректной работы стрелок клавиатуры в терминале)
+readline.parse_and_bind("")
 # чтение переменных окружения
 load_dotenv()
 
@@ -67,7 +70,26 @@ def main() -> None:
         tr_word = get_translate(word=users_str)
         print(tr_word)
     else:
-        print_error('Please enter some text!')
+        print(f'{yellow_color}You have activated the "command line" mode of BashTerminalTranslator.')
+        print(f'To exit enter "exit" or "quit" or use Ctrl+C shortcut.{default_color}')
+        while True:
+            try:
+                # считывание введённой команды
+                interactive_word = input('trans> ').strip()
+            # выход из программы
+            except KeyboardInterrupt:
+                print(f'{red_bold_color}Goodbye!{default_color}')
+                break
+
+            # выход из программы
+            if interactive_word in ['exit', 'quit']:
+                print(f'{red_bold_color}Goodbye!{default_color}')
+                break
+
+            # если было введено слово
+            if interactive_word:
+                tr_word = get_translate(word=interactive_word)
+                print(tr_word)
 
 
 if __name__ == "__main__":

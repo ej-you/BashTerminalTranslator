@@ -34,17 +34,10 @@ def print_hint(error_text: str) -> None:
 
 
 def get_translator_class() -> Translator:
-    proxy_env = getenv('HTTPS_PROXY') or getenv('HTTP_PROXY')
+    """Get translator class"""
 
     timeout_settings = Timeout(timeout=4.0, connect_timeout=2.0)
-
-    if proxy_env:
-        print_hint(f"{yellow_color}HINT: you are using system proxy.{default_color}")
-
-        trnsl = Translator(proxies={proxy_env: ''}, timeout=timeout_settings)
-    else:
-        trnsl = Translator(timeout=timeout_settings)
-
+    trnsl = Translator(timeout=timeout_settings)
     return trnsl
 
 
@@ -52,7 +45,6 @@ def get_translate(word: str) -> str:
     """Translate word and return translated word"""
 
     translator_class = get_translator_class()
-
     word = word.strip().lower()
 
     if match('([а-яА-Я]+\s*)', word):
@@ -70,41 +62,46 @@ def main() -> None:
         tr_word = get_translate(word=users_str)
         print(tr_word)
     else:
-        print(f'{yellow_color}You have activated the "command line" mode of BashTerminalTranslator.')
-        print(f'To exit enter "exit" or "quit" or use Ctrl+C shortcut.{default_color}')
+        print_hint('You have activated the "command line" mode of BashTerminalTranslator.\nTo exit use Ctrl+C shortcut.')
         while True:
             try:
                 # считывание введённой команды
                 interactive_word = input('trans> ').strip()
+
+                # если было введено слово
+                if interactive_word:
+                    tr_word = get_translate(word=interactive_word)
+                    print(tr_word)
+
             # выход из программы
             except KeyboardInterrupt:
-                print(f'{red_bold_color}Goodbye!{default_color}')
+                print_error('\nGoodbye!')
                 break
-
-            # выход из программы
-            if interactive_word in ['exit', 'quit']:
-                print(f'{red_bold_color}Goodbye!{default_color}')
-                break
-
-            # если было введено слово
-            if interactive_word:
-                tr_word = get_translate(word=interactive_word)
-                print(tr_word)
+            # ошибка соединения
+            except httpcore.ConnectError:
+                print_error('CONNECTION ERROR -- Check your Internet connection!')
+            # ошибка соединения
+            except httpcore.ConnectTimeout:
+                print_error('CONNECTION TIMEOUT ERROR -- Check your Internet connection!')
+            # неизвестная ошибка
+            except Exception as err:
+                print_error(f'UNKNOWN ERROR -- {err}')
 
 
 if __name__ == "__main__":
     try:
         main()
-    except httpcore.ProxyError:
-        print_error('PROXY AUTH ERROR -- Check your proxy settings!')
+    # ошибка соединения
     except httpcore.ConnectError:
         print_error('CONNECTION ERROR -- Check your Internet connection!')
+    # ошибка соединения
     except httpcore.ConnectTimeout:
         print_error('CONNECTION TIMEOUT ERROR -- Check your Internet connection!')
+    # выход из программы
     except KeyboardInterrupt:
         print_error('Keyboard exit')
+    # неизвестная ошибка
     except Exception as error:
-        print_error('UNKNOWN ERROR!')
-        print(error)
+        print_error(f'UNKNOWN ERROR -- {error}')
 
     # print(get_translate(input('word: ')))

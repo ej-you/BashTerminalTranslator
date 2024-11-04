@@ -11,7 +11,7 @@ _(если не установлены дополнительные модули
 
 #### 1) Нужно клонировать репозиторий
 ```shell
-git clone https://github.com/Danil-114195722/BashTerminalTranslator.git
+git clone https://github.com/ej-you/BashTerminalTranslator.git
 ```
 
 #### 2) Перейти в директорию с проектом

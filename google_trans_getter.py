@@ -47,7 +47,7 @@ def get_translate(word: str) -> str:
     translator_class = get_translator_class()
     word = word.strip().lower()
 
-    if match('([а-яА-Я]+\s*)', word):
+    if match(r'([а-яА-Я]+\s*)', word):
         translation = translator_class.translate(word, src='ru').text
     else:
         translation = translator_class.translate(word, src='en', dest='ru').text

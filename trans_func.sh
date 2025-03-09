@@ -10,13 +10,13 @@ function trans {
   # "translate one word" mode
   if [ -n "$default_str" ]; then
     # use python func to translate
-    translate=$( "$trans_dir"/venv/bin/python3 "$trans_dir"/google_trans_getter.py "$default_str" )
+    translate=$( env -u http_proxy -u https_proxy -u all_proxy -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY "$trans_dir"/venv/bin/python3 "$trans_dir"/google_trans_getter.py "$default_str" )
 
     # output translation
     echo "$translate"
 
   # "command line" mode
   else
-    "$trans_dir"/venv/bin/python3 "$trans_dir"/google_trans_getter.py
+    env -u http_proxy -u https_proxy -u all_proxy -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY "$trans_dir"/venv/bin/python3 "$trans_dir"/google_trans_getter.py
   fi
 }

@@ -1,4 +1,3 @@
-from os import getenv
 from re import match
 from sys import argv
 
@@ -12,8 +11,6 @@ from googletrans.client import Timeout
 
 # Отключение обработки управляющих символов (для корректной работы стрелок клавиатуры в терминале)
 readline.parse_and_bind("")
-# чтение переменных окружения
-load_dotenv()
 
 
 red_bold_color = '\033[1m\033[31m'
@@ -37,7 +34,7 @@ def get_translator_class() -> Translator:
     """Get translator class"""
 
     timeout_settings = Timeout(timeout=4.0, connect_timeout=2.0)
-    trnsl = Translator(timeout=timeout_settings)
+    trnsl = Translator(timeout=timeout_settings, proxies={})
     return trnsl
 
 

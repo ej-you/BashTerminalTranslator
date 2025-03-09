@@ -4,7 +4,6 @@ from sys import argv
 import httpcore
 import readline
 
-from dotenv import load_dotenv
 from googletrans import Translator
 from googletrans.client import Timeout
 
